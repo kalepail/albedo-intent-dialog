@@ -14,8 +14,6 @@ if (window.parent !== window) { //we are inside an iframe
                     }
                 }
 
-                //listen for the parent window responses
-                window.addEventListener('message', listener, false)
                 //pass the request to the parent frame
                 window.parent.postMessage({
                     type: 'shared-storage',
@@ -23,6 +21,8 @@ if (window.parent !== window) { //we are inside an iframe
                     reqKey,
                     req
                 }, '*')
+                //listen for the parent window responses
+                window.addEventListener('message', listener, false)
             })
         }
 
@@ -71,7 +71,7 @@ if (window.parent !== window) { //we are inside an iframe
         if (data.type !== 'shared-storage' || origin !== allowedOrigin) return
 
         function dispatch(response) {
-            source.postMessage({...data, response}, '*')
+            source.postMessage({...data, response}, origin)
         }
 
         const {req} = data

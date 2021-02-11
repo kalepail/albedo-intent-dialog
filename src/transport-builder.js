@@ -11,7 +11,7 @@ function createDialogTransport(frontendUrl) {
     container.innerHTML = `
 <div class="albedo-dialog-background" role="close"></div>
 <a href="#" class="albedo-dialog-close" role="close" title="Close">✕</a>
-<iframe src="${frontendUrl}/confirm"  class="albedo-dialog-frame" width="0" height="0" referrerpolicy="origin"/>
+<iframe src="${frontendUrl}/confirm"  class="albedo-dialog-frame" width="440" height="600" referrerpolicy="origin"/>
 `
     document.body.appendChild(container)
 
