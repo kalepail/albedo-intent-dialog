@@ -71,13 +71,13 @@ if (window.parent !== window) { //we are inside an iframe
         if (data.type !== 'shared-storage' || origin !== allowedOrigin) return
 
         function dispatch(response) {
-            source.postMessage({...data, response}, allowedOrigin)
+            source.postMessage({...data, response}, '*')
         }
 
         const {req} = data
         switch (data.method) {
             case 'getItem': {
-                const value = await Storage.get({key: req.key})
+                const {value} = await Storage.get({key: req.key})
                 return dispatch({value})
             }
 
