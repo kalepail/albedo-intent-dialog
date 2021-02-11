@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no"/>
+    <script src="./lib/albedo.intent.js"></script>
+    <link href="./src/albedo-intent-dialog.css" rel="stylesheet">
+</head>
+<body>
+<script>
+    //albedo.default.frontendUrl = 'https://localhost:5001'
+    albedo.default.publicKey()
+        .then(r => console.log(r))
+        .catch(e => console.error(e))
+</script>
+</body>
+</html>
