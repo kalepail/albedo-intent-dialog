@@ -5,15 +5,18 @@
     <title>Title</title>
     <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no"/>
     <link href="./src/albedo-intent-dialog.css" rel="stylesheet">
-    <script src="./src/storage-sharing-injector.js"></script>
+<!--    <script src="./src/storage-sharing-injector.js"></script>-->
     <script src="./lib/albedo.intent.js"></script>
 </head>
 <body>
+<button id="test">Test</button>
 <script>
+    document.getElementById('test').addEventListener('click', function (){
+        albedo.default.implicitFlow({intents: 'tx', network: 'testnet'})
+            .then(r => console.log(r))
+            .catch(e => console.error(e))
+    }, false)
     //albedo.default.frontendUrl = 'https://localhost:5001'
-    albedo.default.publicKey()
-        .then(r => console.log(r))
-        .catch(e => console.error(e))
 </script>
 </body>
 </html>
