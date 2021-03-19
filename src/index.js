@@ -126,6 +126,17 @@ AlbedoIntent.prototype = {
         return this.request('sign_message', params)
     },
 
+    /**
+     * Open account settings window for a given account.
+     * @param {Object} params - Intent parameters.
+     * @param {String} params.pubkey - Specific public key requested by the application.
+     * @param {String} [params.network] - Stellar account network identifier or private network passphrase.
+     * @returns {Promise<ManageAccountIntentResult>}
+     */
+    manageAccount(params) {
+        return this.request('manage_account', params)
+    },
+
     generateRandomToken() {
         return generateRandomToken()
     },
